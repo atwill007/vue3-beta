@@ -30,6 +30,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-vue": "^7.0.0-alpha.0",
+    "husky": "^4.2.5",
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "lint-staged": "^9.5.0",
@@ -39,8 +40,13 @@
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
-    "*.{js,jsx,vue}": [
+    "*.{js,jsx,vue,css,md}": [
       "prettier --write",
       "vue-cli-service lint",
       "git add"
