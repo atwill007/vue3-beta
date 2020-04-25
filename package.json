@@ -46,7 +46,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,vue,css,md}": [
+    "*.{js,jsx,vue,css}": [
       "prettier --write",
       "vue-cli-service lint",
       "git add"
