@@ -24,7 +24,7 @@
   - 暴露了自定义渲染 API
 
 ### Utils Link
-- https://vue-next-template-explorer.netlify.app/
+- [Vue 3 Template Explorer](https://vue-next-template-explorer.netlify.app/)
 
 ## Project setup
 
