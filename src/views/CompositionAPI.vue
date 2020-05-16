@@ -1,32 +1,31 @@
 <template>
   <div class="composition-api">
-    <p>Count is: {{ state.count }}, double is: {{ state.double }}</p>
-    <button @click="increment">Click Me</button>
+    <h3>useCount Display</h3>
+    <p>
+      Count is: {{ countState.state.count }}, double is:
+      {{ countState.state.double }}
+    </p>
+    <button @click="countState.increment">Click Me</button>
+
+    <h3>useMousePosition Display</h3>
+    <p>
+      x: <span>{{ mousePosition.x }}</span> y:
+      <span>{{ mousePosition.y }}</span>
+    </p>
   </div>
 </template>
 <script>
-import { reactive, computed } from "vue";
-
-// 这和React的Hook也太像了吧 😂
-function useCount(defaultVal) {
-  const state = reactive({
-    count: defaultVal,
-    double: computed(() => state.count * 2)
-  });
-
-  function increment() {
-    state.count++;
-  }
-
-  return {
-    state,
-    increment
-  };
-}
+import { useCount } from "@/hooks/useCount";
+import { useMousePosition } from "@/hooks/useMousePosition";
 
 export default {
   setup() {
-    return useCount(1);
+    const countState = useCount(1);
+    const mousePosition = useMousePosition();
+    return {
+      countState,
+      mousePosition
+    };
   }
 };
 </script>
