@@ -12,11 +12,15 @@
       x: <span>{{ mousePosition.x }}</span> y:
       <span>{{ mousePosition.y }}</span>
     </p>
+
+    <h3>customRef 使用自定义 ref 实现带防抖功能的 v-model</h3>
+    <input v-model="text" />
   </div>
 </template>
 <script>
 import { useCount } from "@/hooks/useCount";
 import { useMousePosition } from "@/hooks/useMousePosition";
+import { useDebouncedRef } from "@/hooks/useDebouncedRef";
 
 export default {
   setup() {
@@ -24,7 +28,8 @@ export default {
     const mousePosition = useMousePosition();
     return {
       countState,
-      mousePosition
+      mousePosition,
+      text: useDebouncedRef("hello", 1000)
     };
   }
 };
